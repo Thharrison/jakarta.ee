@@ -16,8 +16,8 @@
     "dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "install": "NODE_ENV=production npm run production",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "install": "cross-env NODE_ENV=production npm run production",
     "postinstall": "NODE_ENV=production npm run fetch_project",
     "specifications": "./build.sh",
     "disallow_robots_txt": "echo \"User-agent: *\r\nDisallow: /\" > layouts/robots.txt",
@@ -25,6 +25,7 @@
     "fetch_project": "NODE_ENV=production node node_modules/eclipsefdn-hugo-solstice-theme/bin/projects/index.js -l data"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "eclipsefdn-hugo-solstice-theme": "0.0.87"
   }
 }
